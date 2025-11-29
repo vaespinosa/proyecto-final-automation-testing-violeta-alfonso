@@ -3,6 +3,10 @@
 ## Propósito del Proyecto
 Este proyecto implementa un framework profesional y pedagógico para automatización de pruebas de aplicaciones web y APIs. Permite validar funcionalidades reales, detectar errores y asegurar la calidad del software mediante pruebas independientes y reportes claros.
 
+## Asistencia técnica y automatización
+
+Para la realización de este proyecto se utilizó una herramienta de inteligencia artificial como apoyo en la programación. Su uso potenció el trabajo del tester, facilitando la resolución de problemas, la automatización de tareas y el aprendizaje continuo en el desarrollo de pruebas automatizadas.
+
 ## Tecnologías Utilizadas
 - **Python 3**
 - **Selenium WebDriver** (automatización UI)
@@ -136,7 +140,7 @@ Las pruebas de API utilizan la biblioteca `requests` como cliente HTTP para inte
 - Si la API falla, cambia su estructura, requiere autenticación o no está disponible, los tests pueden fallar, reflejando el estado real del servicio externo.
 - Este comportamiento es profesional y esperado en proyectos reales, ya que valida la robustez del framework y la capacidad de detectar errores genuinos.
 
-**Importante:** Los resultados de los tests de API pueden variar según la disponibilidad y el estado de JSONPlaceholder. El framework está correctamente implementado y listo para testear cualquier API real, siguiendo las mejores prácticas de la industria y del curso.
+**Importante:** Los resultados de los tests de API pueden variar según la disponibilidad y el estado de JSONPlaceholder. El framework está correctamente implementado y listo para testear cualquier API real, siguiendo las mejores prácticas de la industria .
 
 ---
 
