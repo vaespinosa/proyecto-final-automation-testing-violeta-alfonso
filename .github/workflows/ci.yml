@@ -1,0 +1,47 @@
+name: CI - Run tests and collect artifacts
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run tests with pytest and generate HTML report
+        run: |
+          mkdir -p logs screenshots || true
+          python -m pytest -q --html=report_all.html --self-contained-html || true
+
+      - name: Upload HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: report_all.html
+          path: report_all.html
+
+      - name: Upload test log
+        uses: actions/upload-artifact@v4
+        with:
+          name: test_log
+          path: logs/test_log.log
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: screenshots/

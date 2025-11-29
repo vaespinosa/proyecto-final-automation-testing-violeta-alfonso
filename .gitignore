@@ -1,0 +1,25 @@
+venv/
+.venv/
+env/
+ENV/
+
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Logs and reports
+logs/
+report*.html
+
+# Screenshots and artifacts
+screenshots/
+
+# Environment
+.env
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
