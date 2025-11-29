@@ -22,17 +22,15 @@ def pytest_html_results_summary(prefix, summary, postfix):
 def pytest_runtest_makereport(item, call):
     outcome = yield
     rep = outcome.get_result()
-    if rep.when == "call":
+    if rep.when == "call" and rep.failed:
         driver = item.funcargs.get("driver", None)
         if driver and pytest_html:
             test_name = item.name
             screenshot_path = take_screenshot(driver, test_name)
-            # Usar ruta relativa para el reporte
             import os
             rel_path = os.path.relpath(screenshot_path, os.path.dirname(item.config.option.htmlpath or 'report.html'))
             extra = getattr(rep, "extra", None)
             if extra is None:
                 extra = []
-            # Adjuntar imagen como base64 embebido para self-contained-html
             extra.append(pytest_html.extras.image(screenshot_path, mime_type='image/png', extension='png'))
             rep.extra = extra
